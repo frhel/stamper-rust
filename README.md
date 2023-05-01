@@ -1,7 +1,10 @@
-# stamper-rust
+# Stamper - Rust edition.
 
 A simple CLI tool to assist in management of twitch music streams that have been recorded with OBS,
 that will do the following
+
+A Rust rewrite of my node.js tool that I currently use and can be found here:
+https://github.com/frhel/stamper
 
 - Create timestamps that are associated with songs from the streamersonglist.com song queue
 - Global hotkey to store timestamps to database for each stream / session
