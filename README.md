@@ -9,3 +9,9 @@ that will do the following
 - Read the current song in queue and open the associated ultimate-guitar link for that song automatically
 - Map a global hotkey to mark current song in streamersonglist.com queue as played
 - Simple menu to manage songs / timestamps in session
+
+# Progress so far
+- Managed to grab the data for the current queue from streamersonglist.com API
+- Shaped the data to use in database
+- Connect to the streamersonglist.com websocket server and keep the connection alive
+- Listen for websocket events to update current song and mark songs as played
