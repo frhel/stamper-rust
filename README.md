@@ -14,7 +14,7 @@ https://github.com/frhel/stamper
 - Simple menu to manage songs / timestamps in session
 
 # Progress so far
+- Listen for websocket events from Streamersonglist.com to update current song and mark songs as played
 - Managed to grab the data for the current queue from streamersonglist.com API
 - Shaped the data to use in database
-- Connect to the streamersonglist.com websocket server and keep the connection alive
-- Listen for websocket events to update current song and mark songs as played
+- Set up procedure to intialize SQLite database file and add tables
