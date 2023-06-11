@@ -35,11 +35,12 @@ pub fn close_db_connection(conn: Connection) {
 pub fn init_db() -> Result<(), String> {
     let db_name = DbConfig::default().db_name;
 
-    println!("Initializing database connection");
+    println!("Initializing database connection...");
 
     // Check if the database file exists
     if std::path::Path::new(&db_name).exists() {
         // break early if the database file exists
+        println!("Database initialized");
         return Ok(());
     }
 

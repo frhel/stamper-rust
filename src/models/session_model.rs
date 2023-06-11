@@ -1,46 +1,30 @@
-use chrono::Utc;
-
-use stamper::db_controller;
+use chrono::{Utc, DateTime};
+use rusqlite::Connection;
 
 use crate::models::song_model::CurrentSong;
 // import db_controller from the root of the project
 
 #[derive(Debug, Clone)]
 pub struct SessionModel {
-    _start_time: String,
-    _yt_id: String,
-    _songs: Vec<CurrentSong>
+    pub start_time: DateTime<Utc>,
+    pub yt_id: String,
+    pub songs: Vec<CurrentSong>
 }
 
 impl Default for SessionModel {
     fn default() -> Self {
         SessionModel {
-            _start_time: Utc::now().to_string(),
-            _yt_id: String::new(),
-            _songs: Vec::new()
+            start_time: Utc::now(),
+            yt_id: String::new(),
+            songs: Vec::new()
         }
     }
 }
 
-pub fn init_session() -> SessionModel {
-    // Initialize the database connection just in case.
-    db_controller::init_db().expect("Failed to initialize database");
-
-    let session = SessionModel { ..Default::default() };
-
-    // Check if there is an active session in the database
-    // If there is, load it into the session model
-    // If there isn't, create a new session in the database
-    // and load it into the session model
-    let _conn = db_controller::open_db_connection();
-
-    // Check if there is an active session in the database
-
-
-
-
+pub fn load_active_session(conn: Connection, session: SessionModel, newest_filestamp: DateTime<Utc>) -> SessionModel {
+    // Here we take the timestamp of the most recently created video
+    // and use it to determine the active session
     session
 }
-
 
 

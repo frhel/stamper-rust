@@ -1,10 +1,11 @@
 use tokio::{sync::mpsc, runtime::Runtime};
 
 mod models;
-use crate::models::{update_active_song, CurrentSong, init_session};//, DbModel};
+use crate::models::{update_active_song, CurrentSong};//, DbModel};
 
 mod songlist_ws;
 use crate::songlist_ws::connect_and_keep_alive;
+
 mod session_controller;
 
 
@@ -25,7 +26,7 @@ pub async fn async_main() {
     current_song = update_active_song(current_song).await;
 
     // Initialize the session
-    let _session = init_session();
+    let _session = session_controller::init_session();
 
     // Create the channels to communicate between the threads
     let (main_sender, mut main_receiver) = mpsc::channel(10);
